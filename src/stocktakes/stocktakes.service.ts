@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { StocktakeInterface } from './interfaces/stocktake.interface';
+import { CreateStocktakeDto } from './dto/create-stocktake.dto';
 
 @Injectable()
 export class StocktakesService {
@@ -11,5 +12,11 @@ export class StocktakesService {
 
   getAll(): StocktakeInterface[]{
     return this.stocktakes;
+  }
+
+  create(stocktake: CreateStocktakeDto): StocktakeInterface {
+    const newStocktake = { claims: stocktake.claims, stock: stocktake.stock, taken: 'maeh'};
+    this.stocktakes.push(newStocktake);
+    return newStocktake;
   }
 }
