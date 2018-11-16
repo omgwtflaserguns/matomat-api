@@ -1,7 +1,7 @@
 import { ApiModelProperty } from '@nestjs/swagger';
-import { StocktakeInterface } from '../interfaces/stocktake.interface';
+import { Stocktake } from '../interfaces/stocktake.interface';
 
-export class StocktakeDto implements StocktakeInterface{
+export class StocktakeDto implements Stocktake {
   @ApiModelProperty({example: 37})
   claims: number;
 
